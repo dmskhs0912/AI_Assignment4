@@ -89,7 +89,7 @@ def variance_from_distribution(P):
 
 
 def covariance_from_distribution(P):
-    # P를 행 별로 잘라서 m에, 열 별로 잘라서 n에 저장
+    # P의 행, 열 별 인덱스 배열을 구하고 m의 평균, n의 평균 구함
     m, n = np.indices(P.shape)
     mu_m = np.sum(m * P)
     mu_n = np.sum(n * P)
@@ -101,7 +101,7 @@ def covariance_from_distribution(P):
     return covar
 
 def expectation_of_a_function(P, f):
-    # P를 행 별로 잘라서 m에, 열 별로 잘라서 n에 저장
+    # P의 행, 열 별 인덱스 배열을 구함
     m, n = np.indices(P.shape)
     # f(m,n) 값에 대해 평균 계산
     expected = round(np.sum(f(m, n) * P), 3)
